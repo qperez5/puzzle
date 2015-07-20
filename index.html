@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Books. Hola</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.9.1/ember.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ember-data.js/1.0.0-beta.14.1/ember-data.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+    	 
+	</head>
+	<body>
+		
+		<script type="text/x-handlebars">			
+			{{outlet}}
+		</script>
+		
+		<script type="text/x-handlebars" id="index">
+			<div id="tabs">
+				  <ul>
+					<li><a href="#tabs-1">Ernest Hemingway</a></li>
+					<li><a href="#tabs-2">Charles Dickens</a></li>
+					<li><a href="#tabs-3">William Shakespeare</a></li>
+				  </ul>
+				  
+				  <div id="tabs-1">
+					<table class="table">
+						 <tr>
+							 <th>Title</th>
+							 <th>Description</th>
+							 <th>Price</th>
+							 <th>&nbsp;</th>
+						 </tr>
+						{{#each bookH in booksHeminway}}
+							<tr>
+								 <td><a href="{{unbound bookH.trackViewUrl}}">  {{bookH.trackName}}</a></td>
+								 <td>{{{bookH.description}}}</td>
+								 <td>{{bookH.formattedPrice}}</td>
+							</tr>
+						{{/each}}
+					</table>
+				  </div>
+				  
+				  <div id="tabs-2">
+					<table class="table">
+						 <tr>
+							 <th>Title</th>
+							 <th>Description</th>
+							 <th>Price</th>
+							 <th>&nbsp;</th>
+						 </tr>
+						{{#each bookD in booksDickens}}
+								<tr>
+								 <td> <a href="{{unbound bookD.trackViewUrl}}"> {{bookD.trackName}} </a></td>
+								 <td>{{{bookD.description}}}</td>
+								 <td>{{bookD.formattedPrice}}</td>
+							</tr>
+						{{/each}}
+					</table>
+				  </div>
+				  <div id="tabs-3">
+					<table class="table">
+						 <tr>
+							 <th>Title</th>
+							 <th>Description</th>
+							 <th>Price</th>
+							 <th>&nbsp;</th>
+						 </tr>
+						{{#each bookS in booksShakespeare}}
+								<tr>
+								 <td><a href="{{unbound bookS.trackViewUrl}}">{{bookS.trackName}}</a></td>
+								 <td>{{{bookS.description}}}</td>
+								 <td>{{bookS.formattedPrice}}</td>
+							</tr>
+						{{/each}}
+					</table>
+				  </div>
+				</div>
+		</script>
+		
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/routes/router.js"></script>
+		<script type="text/javascript" src="js/models/model.js"></script>
+		<script type="text/javascript" src="js/views/views.js"></script>
+		
+	 </body>
+</html>
+
+
